@@ -1,13 +1,13 @@
-module.exports = (req, res) => {
-    let who = 'anonymous'
-  
-    if (req.body && req.body.who) {
-      who = req.body.who
-    } else if (req.query.who) {
-      who = req.query.who
-    } else if (req.cookies.who) {
-      who = req.cookies.who
-    }
-  
-    res.status(200).send(`Hello ${who}!`)
+const axios = require("axios");
+
+export default async (req, res) => {
+  try {
+    const resp = await axios.get(
+      "http://www.reddit.com/r/random/comments.json?limit=1"
+    );
+    const comment = resp.data.data.children[0].data.body;
+    res.status(200).json(comment);
+  } catch (error) {
+    return res.status(400).json(error);
   }
+};

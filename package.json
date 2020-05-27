@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/larts1/api_test/issues"
   },
-  "homepage": "https://github.com/larts1/api_test#readme"
+  "homepage": "https://github.com/larts1/api_test#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "snoowrap": "^1.21.0"
+  }
 }
